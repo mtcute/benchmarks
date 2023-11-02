@@ -37,7 +37,25 @@ function randomize(data) {
 	}
 }
 
+function randomizeCrypto(data, needUint8 = false) {
+	const MIN_SIZE = 64 // 32 bytes key + 32 bytes iv
+	data = randomize(data)
+
+	const padSize = 16 - (data.length % 16);
+	let buf = Buffer.allocUnsafe(Math.max(data.length + padSize, MIN_SIZE));
+	buf.set(Buffer.from(data));
+
+	if (needUint8) {
+		buf = new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength)
+	}
+
+	const key = buf.slice(0, 32);
+	const iv = buf.slice(32, 64);
+	return [buf, key, iv];
+}
+
 module.exports = {
 	dev,
-	randomize
+	randomize,
+	randomizeCrypto
 };

@@ -1,38 +1,20 @@
 {
-  "name": "zlib-benchmark",
+  "name": "@mtcute/benchmarks",
   "version": "1.0.0",
-  "description": "Benchmarking Node's zlib and its various methods, implementations and libraries",
+  "description": "Benchmarks comparing deflate and aes libraries performance",
   "main": "benchmark.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "url": "https://github.com/timotejroiko/zlib-benchmark.git"
-  },
   "dependencies": {
+    "@cryptography/aes": "0.1.1",
+    "@mtcute/crypto-node": "0.1.0",
+    "@mtcute/crypto-node-openssl": "http://npm.tei.su/@mtcute/crypto-node-openssl/-/crypto-node-openssl-0.1.0.tgz",
     "eslint": "^7.16.0",
-    "fast-zlib": "^2.0.0",
+    "fast-zlib": "2.0.1",
     "minimist": "^1.2.5",
-    "minizlib": "^2.1.2",
-    "pako": "^2.0.2",
-    "zlib-sync": "^0.1.7"
-  },
-  "keywords": [
-    "zlib",
-    "benchmark",
-    "sync",
-    "async",
-    "stream",
-    "performance",
-    "test",
-    "shared",
-    "context",
-    "takeover"
-  ],
-  "author": "Timotej Valentin Rojko",
-  "funding": {
-    "type": "patreon",
-    "url": "https://patreon.com/timotejroiko"
+    "pako": "2.1.0",
+    "zlib-sync": "0.1.9"
   },
   "license": "MIT"
 }
