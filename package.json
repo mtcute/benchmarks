@@ -10,6 +10,7 @@
     "@cryptography/aes": "0.1.1",
     "@mtcute/crypto-node": "0.1.0",
     "@mtcute/crypto-node-openssl": "http://npm.tei.su/@mtcute/crypto-node-openssl/-/crypto-node-openssl-0.1.0.tgz",
+    "sha256-uint8array": "0.10.7",
     "eslint": "^7.16.0",
     "fast-zlib": "2.0.1",
     "minimist": "^1.2.5",

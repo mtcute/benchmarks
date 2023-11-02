@@ -37,6 +37,10 @@ function randomize(data) {
 	}
 }
 
+function randomizeBuffer(data) {
+	return Buffer.from(randomize(data));
+}
+
 function randomizeCrypto(data, needUint8 = false) {
 	const MIN_SIZE = 64 // 32 bytes key + 32 bytes iv
 	data = randomize(data)
@@ -57,5 +61,6 @@ function randomizeCrypto(data, needUint8 = false) {
 module.exports = {
 	dev,
 	randomize,
+	randomizeBuffer,
 	randomizeCrypto
 };

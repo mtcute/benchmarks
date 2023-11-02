@@ -14,7 +14,7 @@ function buildResultsMap(results) {
             current = line
             continue
         }
-        
+
         if (line.trim() === '') {
             current = null
             continue
@@ -63,20 +63,29 @@ function buildTable(map) {
     return res
 }
 
-const allDeflate = {}
-const allCrypto = {}
-for (const data of fs.readdirSync('./data')) {
+const args = require("minimist")(process.argv.slice(2), {
+    string: ["data", "kind", "tests"],
+});
 
-    process.stderr.write(`Benchmarking deflate ${data}\n`)
-    const resultsDeflate = cp.execSync(`node ./benchmark.js --kind=deflate --data=${data} ${process.argv.slice(2)}`, { stdio: 'pipe', encoding: 'utf-8' })
-    allDeflate[data] = buildResultsMap(resultsDeflate)
+const dataOnly = args.data?.split(',')
+const kindOnly = args.kind?.split(',') ?? ['deflate', 'ige', 'sha256']
+const testsParam = args.tests ? `--tests=${args.tests}` : ''
 
-    process.stderr.write(`Benchmarking crypto ${data}\n`)
-    const resultsCrypto = cp.execSync(`node ./benchmark.js --kind=crypto --data=${data} ${process.argv.slice(2)}`, { stdio: 'pipe', encoding: 'utf-8' })
-    allCrypto[data] = buildResultsMap(resultsCrypto)
+const all = {}
+
+for (const kind of kindOnly) {
+    const res = all[kind] = {}
+    
+    for (const data of fs.readdirSync('./data')) {
+        if (dataOnly && !dataOnly.includes(data)) continue
+
+        process.stderr.write(`Benchmarking ${kind} ${data}\n`)
+        const resultsDeflate = cp.execSync(`node ./benchmark.js --kind=${kind} --data=${data} ${testsParam}`, { stdio: 'pipe', encoding: 'utf-8' })
+        res[data] = buildResultsMap(resultsDeflate)
+    }
 }
 
-console.log('### Deflate')
-console.log(buildTable(allDeflate))
-console.log('### AES IGE')
-console.log(buildTable(allCrypto))
+for (const kind of kindOnly) {
+    console.log('### ' + kind)
+    console.log(buildTable(all[kind]))
+}
