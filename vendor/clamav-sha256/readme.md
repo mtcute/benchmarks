@@ -1,1 +1,0 @@
-WASM build of https://opensource.apple.com/source/clamav/clamav-158/clamav.Bin/clamav-0.98/libclamav/sha256.c.auto.html

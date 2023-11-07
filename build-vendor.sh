@@ -18,7 +18,7 @@ set -eaux -o pipefail
 # npx node-gyp configure
 # npx node-gyp build
 
-# # THE solutions :D (fixup @mtcute/core to be sync)
-# sed -i 's/block = await this._aes/block = this._aes/g' node_modules/@mtcute/core/cjs/utils/crypto/common.js
-# sed -i 's/async encrypt/encrypt/g' node_modules/@mtcute/core/cjs/utils/crypto/common.js
-# sed -i 's/async decrypt/decrypt/g' node_modules/@mtcute/core/cjs/utils/crypto/common.js
+# THE solutions :D (fixup @mtcute/core to be sync)
+sed -i 's/block = await this._aes/block = this._aes/g' node_modules/@mtcute/core/cjs/utils/crypto/common.js
+sed -i 's/async encrypt/encrypt/g' node_modules/@mtcute/core/cjs/utils/crypto/common.js
+sed -i 's/async decrypt/decrypt/g' node_modules/@mtcute/core/cjs/utils/crypto/common.js

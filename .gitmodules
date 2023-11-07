@@ -1,6 +1,0 @@
-[submodule "vendor/libdeflate"]
-	path = vendor/libdeflate
-	url = https://github.com/ebiggers/libdeflate
-[submodule "vendor/lekkit-sha256"]
-	path = vendor/lekkit-sha256
-	url = https://github.com/LekKit/sha256

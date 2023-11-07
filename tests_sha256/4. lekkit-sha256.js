@@ -4,14 +4,18 @@ const { performance } = require("perf_hooks");
 const fs = require("fs");
 const functions = require("../functions.js");
 
-import("../vendor/lekkit-sha256/lekkit-sha256.mjs").then((wasm) => {
+const crypto = require("crypto");
+const cryptoSha256 = (data) => crypto.createHash('sha256').update(data).digest();
+
+import("../vendor/wasm/lekkit-sha256.mjs").then((wasm) => {
 const args = JSON.parse(process.argv[2]);
 const dat = fs.readFileSync(`./data/${args.data}`, "utf8");
 
 const warmup = performance.now();
 while(performance.now() < warmup + 2000) {
 	const data = functions.randomizeBuffer(dat);
-	wasm.sha256(data);
+	const res = wasm.sha256(data);
+	if (Buffer.compare(res, cryptoSha256(data)) !== 0) throw new Error("data validation failed");
 }
 
 const result1 = [];
@@ -30,6 +34,8 @@ while(performance.now() < run + 10000) {
 		wasm.sha256(data);
 		s1.push(performance.now() - t);
 		ops++;
+		const res = wasm.sha256(data);
+		if (Buffer.compare(res, cryptoSha256(data)) !== 0) throw new Error("data validation failed");
 	}
 	result1.push(1000 / (s1.reduce((a, t) => a + t, 0) / s1.length));
 	result4.push(s4.reduce((a, t) => a + t, 0) / s4.length);

@@ -1,0 +1,1 @@
+taken from https://www.hellorust.com/demos/sha1/index.html

@@ -1,0 +1,102 @@
+mtcute-highload.log
+  gzip
+    samples: 3
+    min: 4
+    max: 84
+    average: 36
+    median: 20
+    stddev: 34.56395039150859
+    99th percentile: 4 ⩽ x ⩽ 84
+    90th percentile: 4 ⩽ x ⩽ 84
+    75th percentile: 4 ⩽ x ⩽ 84
+  IGE.encrypt
+    samples: 2881
+    min: 64
+    max: 944
+    average: 214.84762235334952
+    median: 176
+    stddev: 145.0765589293672
+    99th percentile: 64 ⩽ x ⩽ 864
+    90th percentile: 144 ⩽ x ⩽ 528
+    75th percentile: 144 ⩽ x ⩽ 304
+  IGE.decrypt
+    samples: 27933
+    min: 64
+    max: 5344
+    average: 391.24476425733
+    median: 352
+    stddev: 174.29868716351336
+    99th percentile: 128 ⩽ x ⩽ 1072
+    90th percentile: 288 ⩽ x ⩽ 624
+    75th percentile: 304 ⩽ x ⩽ 528
+  inflate
+    samples: 26210
+    min: 175
+    max: 5265
+    average: 338.90587561999234
+    median: 289
+    stddev: 173.61614775300478
+    99th percentile: 230 ⩽ x ⩽ 1039
+    90th percentile: 239 ⩽ x ⩽ 581
+    75th percentile: 246 ⩽ x ⩽ 475
+  inflateRatio
+    samples: 26210
+    min: 0.12158469945355191
+    max: 0.9752747252747253
+    average: 0.8685900931298743
+    median: 0.8869047619047619
+    stddev: 0.0715259826939819
+    99th percentile: 0.5546116504854369 ⩽ x ⩽ 0.9425675675675675
+    90th percentile: 0.75 ⩽ x ⩽ 0.9305555555555556
+    75th percentile: 0.8007246376811594 ⩽ x ⩽ 0.9236111111111112
+weba.log
+  CTR.encrypt
+    samples: 57591
+    min: 1
+    max: 524556
+    average: 6197.849525099408
+    median: 88
+    stddev: 26374.528434568147
+    99th percentile: 1 ⩽ x ⩽ 131176
+    90th percentile: 1 ⩽ x ⩽ 24568
+    75th percentile: 1 ⩽ x ⩽ 1928
+  IGE.encrypt
+    samples: 12715
+    min: 64
+    max: 524528
+    average: 814.2445930003933
+    median: 144
+    stddev: 15175.171169135505
+    99th percentile: 64 ⩽ x ⩽ 816
+    90th percentile: 80 ⩽ x ⩽ 288
+    75th percentile: 112 ⩽ x ⩽ 192
+  IGE.decrypt
+    samples: 18730
+    min: 64
+    max: 136400
+    average: 18852.659049652964
+    median: 160
+    stddev: 42523.08334953511
+    99th percentile: 64 ⩽ x ⩽ 131152
+    90th percentile: 64 ⩽ x ⩽ 131152
+    75th percentile: 64 ⩽ x ⩽ 131152
+  inflate
+    samples: 4217
+    min: 28
+    max: 136335
+    average: 5787.587858667299
+    median: 763
+    stddev: 13344.321825041796
+    99th percentile: 168 ⩽ x ⩽ 58451
+    90th percentile: 268 ⩽ x ⩽ 28820
+    75th percentile: 325 ⩽ x ⩽ 18534
+  inflateRatio
+    samples: 4217
+    min: 0.07352941176470588
+    max: 0.969551282051282
+    average: 0.6782418052846725
+    median: 0.7258620689655172
+    stddev: 0.20046357572731743
+    99th percentile: 0.15608312050150916 ⩽ x ⩽ 0.9285714285714286
+    90th percentile: 0.30038699690402476 ⩽ x ⩽ 0.9095744680851063
+    75th percentile: 0.39753019771914433 ⩽ x ⩽ 0.8974056603773585

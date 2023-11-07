@@ -1,6 +1,8 @@
 const cp = require('child_process');
 const fs = require('fs');
 
+const now = Date.now()
+
 function buildResultsMap(results) {
     const lines = results.split('\n');
 
@@ -68,7 +70,7 @@ const args = require("minimist")(process.argv.slice(2), {
 });
 
 const dataOnly = args.data?.split(',')
-const kindOnly = args.kind?.split(',') ?? ['deflate', 'ige', 'sha256']
+const kindOnly = args.kind?.split(',') ?? fs.readdirSync(__dirname).filter(f => f.startsWith('tests_')).map(f => f.slice(6))
 const testsParam = args.tests ? `--tests=${args.tests}` : ''
 
 const all = {}
@@ -89,3 +91,5 @@ for (const kind of kindOnly) {
     console.log('### ' + kind)
     console.log(buildTable(all[kind]))
 }
+
+process.stderr.write(`Finished in ${Math.floor((Date.now() - now) / 1000)}s`)
